@@ -1,16 +1,22 @@
 # Import socket module
 from socket import *
-import sys  # In order to terminate the program
+# In order to terminate the program
+import sys
+
 # Create a TCP server socket
 # (AF_INET is used for IPv4 protocols)
 # (SOCK_STREAM is used for TCP)
 serverSocket = socket(AF_INET, SOCK_STREAM)
 
 # Prepare a server socket
-serverPort = 8080  # Use any port number you like
-# Bind the socket to a public host, and a port
+serverPort = 8080  # Server Port Selected As 8080
+
+# Bind the socket to a 'host' and 'port'
+# '' is used to bind to all available interfaces for my IP it is '192.168.1.212'
 serverSocket.bind(('', serverPort))
-serverSocket.listen(1)  # Maximum number of connections is 1
+
+# Maximum number of connections is 1
+serverSocket.listen(1)
 
 while True:
     # Establish the connection
